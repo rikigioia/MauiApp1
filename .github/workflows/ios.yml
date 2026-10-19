@@ -17,8 +17,8 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
-      - name: Installa il workload MAUI iOS
-        run: dotnet workload install maui-ios
+      - name: Installa i workload MAUI
+        run: dotnet workload install maui-ios android
 
       - name: Mostra la versione di Xcode
         run: xcodebuild -version
