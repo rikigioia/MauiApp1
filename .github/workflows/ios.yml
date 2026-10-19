@@ -25,9 +25,9 @@ jobs:
           dotnet --info
           dotnet workload list
 
-      - name: Seleziona Xcode 26.3
+      - name: Seleziona Xcode 26.0
         run: |
-          sudo xcode-select -s /Applications/Xcode_26.3.app/Contents/Developer
+          sudo xcode-select -s /Applications/Xcode_26.0.app/Contents/Developer
           xcodebuild -version
 
       - name: Compila MauiApp1 per iOS
