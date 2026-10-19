@@ -60,3 +60,10 @@ jobs:
             -p:RuntimeIdentifier=ios-arm64 \
             -p:EnableCodeSigning=false \
             -p:ArchiveOnBuild=false
+
+      - name: Salva la compilazione iOS
+        uses: actions/upload-artifact@v4
+        with:
+          name: MauiApp1-iOS
+          path: MauiApp1/bin/Release/net10.0-ios/ios-arm64/
+          if-no-files-found: error
