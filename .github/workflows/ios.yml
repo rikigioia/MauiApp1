@@ -25,14 +25,24 @@ jobs:
           dotnet --info
           dotnet workload list
 
-      - name: Seleziona e verifica Xcode 26.0
+      - name: Verifica Xcode 26.0
         run: |
           sudo xcode-select -s /Applications/Xcode_26.0.app/Contents/Developer
+      
+          echo "=== Versione Xcode ==="
           xcodebuild -version
-          xcode-select -p
+      
+          echo "=== SDK disponibili ==="
           xcodebuild -showsdks
-          xcrun --find actool
+      
+          echo "=== Percorso SDK macOS ==="
           xcrun --sdk macosx --show-sdk-path
+      
+          echo "=== Verifica actool ==="
+          xcrun --find actool
+      
+          echo "=== Verifica SDK fisico ==="
+          ls -la /Applications/Xcode_26.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 
       - name: Compila MauiApp1 per iOS
         run: |
