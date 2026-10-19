@@ -20,8 +20,12 @@ jobs:
       - name: Installa i workload MAUI
         run: dotnet workload install maui-ios android maccatalyst
 
-      - name: Mostra la versione di Xcode
-        run: xcodebuild -version
+      - name: Verifica le versioni di Xcode disponibili
+        run: |
+          echo "Xcode attivo:"
+          xcodebuild -version
+          echo "Versioni installate:"
+          ls -d /Applications/Xcode*.app
 
       - name: Compila MauiApp1 per iOS
         run: |
