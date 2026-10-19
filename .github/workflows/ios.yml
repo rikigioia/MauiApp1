@@ -19,6 +19,11 @@ jobs:
 
       - name: Installa i workload MAUI
         run: dotnet workload install maui-ios android maccatalyst
+      
+      - name: Mostra le versioni dei workload
+        run: |
+          dotnet --info
+          dotnet workload list
 
       - name: Seleziona Xcode 26.3
         run: |
