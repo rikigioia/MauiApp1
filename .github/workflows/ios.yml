@@ -25,22 +25,21 @@ jobs:
           dotnet --info
           dotnet workload list
 
-      - name: Configura Xcode e verifica gli SDK
+      - name: Configura Xcode 26.0.1
         run: |
-          echo "=== Xcode disponibili ==="
-          ls -d /Applications/Xcode*.app
-      
-          echo "=== Seleziona Xcode ==="
-          sudo xcode-select -s /Applications/Xcode_26.0.app/Contents/Developer
-      
-          echo "=== Verifica versione ==="
+          sudo xcode-select -s /Applications/Xcode_26.0.1.app/Contents/Developer
+
+          echo "=== Versione Xcode ==="
           xcodebuild -version
-      
-          echo "=== Verifica SDK disponibili ==="
-          xcodebuild -showsdks
-      
+
+          echo "=== Percorso Xcode ==="
+          xcode-select -p
+
+          echo "=== Verifica SDK macOS ==="
+          xcrun --sdk macosx --show-sdk-path
+
           echo "=== Verifica actool ==="
-          xcrun --sdk iphoneos --find actool
+          xcrun --find actool
 
       - name: Verifica SDK macOS
         run: |
