@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage"
+             Title="Web">
+    <Grid RowDefinitions="*,Auto">
+        <Grid Grid.Row="0">
+            <WebView x:Name="Browser"
+                     Navigating="OnBrowserNavigating"
+                     Navigated="OnBrowserNavigated" />
+
+            <VerticalStackLayout x:Name="ErrorPanel"
+                                 IsVisible="False"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 Padding="24"
+                                 Spacing="12">
+                <Label x:Name="ErrorMessage"
+                       Text="Impossibile caricare la pagina. Controlla la connessione e riprova."
+                       HorizontalTextAlignment="Center" />
+                <Button Text="Riprova" Clicked="OnRetryClicked" />
+            </VerticalStackLayout>
+
+            <ActivityIndicator x:Name="LoadingIndicator"
+                               IsVisible="False"
+                               IsRunning="False"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+        </Grid>
+
+        <Grid Grid.Row="1"
+              ColumnDefinitions="*,*,*"
+              Padding="8,6"
+              BackgroundColor="{AppThemeBinding Light=#F3F3F3, Dark=#252525}">
+            <Button Grid.Column="0" Text="Indietro" Clicked="OnBackClicked" />
+            <Button Grid.Column="1" Text="Home" Clicked="OnHomeClicked" />
+            <Button Grid.Column="2" Text="Aggiorna" Clicked="OnRefreshClicked" />
+        </Grid>
+    </Grid>
+</ContentPage>
