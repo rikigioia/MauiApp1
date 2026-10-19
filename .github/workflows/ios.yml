@@ -15,10 +15,10 @@ jobs:
       - name: Installa .NET 10
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '10.0.x'
+          dotnet-version: '10.0.203'
 
       - name: Installa i workload MAUI
-        run: dotnet workload install maui-ios android maccatalyst
+        run: dotnet workload install maui-ios android maccatalyst --skip-manifest-update
       
       - name: Mostra le versioni dei workload
         run: |
