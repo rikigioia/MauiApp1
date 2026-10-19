@@ -20,9 +20,9 @@ jobs:
       - name: Installa i workload MAUI
         run: dotnet workload install maui-ios android maccatalyst
 
-      - name: Seleziona Xcode 27.0
+      - name: Seleziona Xcode 26.3
         run: |
-          sudo xcode-select -s /Applications/Xcode_27.0.app/Contents/Developer
+          sudo xcode-select -s /Applications/Xcode_26.3.app/Contents/Developer
           xcodebuild -version
 
       - name: Compila MauiApp1 per iOS
